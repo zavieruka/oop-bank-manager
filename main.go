@@ -19,6 +19,14 @@ func (c *checkingAccount) cashOut(value float64) string {
 
 }
 
+func (c *checkingAccount) deposit(value float64) string {
+	if value <= 0 {
+		return "deposit amount must be greater than zero"
+	}
+	c.balance += value
+	return fmt.Sprintf("deposit successful! New balance: %.2f", c.balance)
+}
+
 func main() {
 	account1 := &checkingAccount{
 		assignee:      "John Doe",
@@ -28,4 +36,5 @@ func main() {
 	}
 
 	account1.cashOut(200.00)
+	account1.deposit(500.00)
 }
