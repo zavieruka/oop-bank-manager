@@ -10,5 +10,15 @@ type checkingAccount struct {
 }
 
 func main() {
-	fmt.Println(checkingAccount{})
+	account := checkingAccount{
+		assignee:      "John Doe",
+		agencyNumber:  1234,
+		accountNumber: 567890,
+		balance:       1000.50,
+	}
+
+	fmt.Println("Account Holder:", account.assignee)
+	fmt.Println("Agency Number:", account.agencyNumber)
+	fmt.Println("Account Number:", account.accountNumber)
+	fmt.Println("Balance:", account.balance)
 }
