@@ -10,7 +10,10 @@ type checkingAccount struct {
 }
 
 func (c *checkingAccount) cashOut(value float64) string {
-	canCashOut := value <= c.balance
+	canCashOut := value <= c.balance && value > 0
+	if value <= 0 {
+		return "cash out amount must be greater than zero"
+	}
 	if canCashOut {
 		c.balance -= value
 		return fmt.Sprintf("cash out successful! New balance: %.2f", c.balance)
