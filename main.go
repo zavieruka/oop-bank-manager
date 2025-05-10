@@ -9,6 +9,16 @@ type checkingAccount struct {
 	balance       float64
 }
 
+func (c *checkingAccount) cashOut(value float64) string {
+	canCashOut := value <= c.balance
+	if canCashOut {
+		c.balance -= value
+		return fmt.Sprintf("cash out successful! New balance: %.2f", c.balance)
+	}
+	return fmt.Sprintf("insufficient funds! Current balance: %.2f", c.balance)
+
+}
+
 func main() {
 	account1 := &checkingAccount{
 		assignee:      "John Doe",
@@ -17,18 +27,5 @@ func main() {
 		balance:       1000.50,
 	}
 
-	account2 := &checkingAccount{
-		assignee:      "John Doe",
-		agencyNumber:  1234,
-		accountNumber: 5678,
-		balance:       1000.50,
-	}
-
-	fmt.Println("Account 1:", account1)
-	fmt.Println("Account 2:", account2)
-
-	fmt.Println("Same memory location?", account1 == account2)
-	fmt.Println("Same content?", *account1 == *account2)
-	fmt.Printf("Account 1 pointer: %p\n", account1)
-	fmt.Printf("Account 2 pointer: %p\n", account2)
+	account1.cashOut(200.00)
 }
