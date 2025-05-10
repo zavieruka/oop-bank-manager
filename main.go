@@ -58,6 +58,26 @@ func main() {
 		balance:       500.75,
 	}
 
-	fmt.Println(account1)
-	fmt.Println(account2)
+	fmt.Println("Initial balances:")
+	fmt.Printf("Account 1: %.2f\n", account1.balance)
+	fmt.Printf("Account 2: %.2f\n", account2.balance)
+
+	fmt.Println("deposit function:")
+	fmt.Println(account1.deposit(200))
+	fmt.Println(account1.deposit(-50))
+
+	fmt.Println("cashOut function:")
+	fmt.Println(account1.cashOut(300))
+	fmt.Println(account1.cashOut(2000))
+	fmt.Println(account1.cashOut(-100))
+
+	fmt.Println("transfer function:")
+	fmt.Println(account1.transfer(400, account2))
+	fmt.Println(account1.transfer(2000, account2))
+	fmt.Println(account1.transfer(-50, account2))
+
+	fmt.Println("Final balances:")
+	fmt.Printf("Account 1: %.2f\n", account1.balance)
+	fmt.Printf("Account 2: %.2f\n", account2.balance)
+
 }
