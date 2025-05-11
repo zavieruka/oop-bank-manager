@@ -1,9 +1,12 @@
 package account
 
-import "fmt"
+import (
+	"fmt"
+	"oop-bank-manager/clients"
+)
 
 type CheckingAccount struct {
-	Assignee      string
+	Assignee      clients.Assignee
 	AgencyNumber  int
 	AccountNumber int
 	Balance       float64
