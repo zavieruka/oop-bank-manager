@@ -6,6 +6,14 @@ import (
 	"oop-bank-manager/clients"
 )
 
+type IAccount interface {
+	CashOut(value float64) string
+}
+
+func payBill(account IAccount, value float64) {
+	account.CashOut(value)
+}
+
 func main() {
 	jonhAssignee := clients.Assignee{
 		Name:       "jonh doe",
@@ -35,4 +43,6 @@ func main() {
 	janeAccount.Deposit(1000)
 	fmt.Println(janeAccount.GetBalance())
 
+	payBill(&jonhAccount, 100)
+	payBill(&janeAccount, 100)
 }
