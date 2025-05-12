@@ -21,4 +21,18 @@ func main() {
 	jonhAccount.Deposit(1000)
 	fmt.Println(jonhAccount.GetBalance())
 
+	janeAssignee := clients.Assignee{
+		Name:       "jane doe",
+		CPF:        "987.654.321-00",
+		Profession: "worker"}
+	janeAccount := account.SavingAccount{
+		Assignee:      janeAssignee,
+		AgencyNumber:  123,
+		AccountNumber: 456789,
+		Operation:     1,
+	}
+
+	janeAccount.Deposit(1000)
+	fmt.Println(janeAccount.GetBalance())
+
 }
