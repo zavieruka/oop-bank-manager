@@ -16,8 +16,9 @@ func main() {
 		Assignee:      jonhAssignee,
 		AgencyNumber:  123,
 		AccountNumber: 456789,
-		Balance:       100}
+	}
 
-	fmt.Println(jonhAccount)
+	jonhAccount.Deposit(1000)
+	fmt.Println(jonhAccount.GetBalance())
 
 }
